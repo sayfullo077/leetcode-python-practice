@@ -1,14 +1,18 @@
 # problem: https://leetcode.com/problems/two-sum/
 # level: Easy
 # tags: Array, Hash Table
-
-from typing import List
+# requirement python3
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash_map = {}
+        num_dict = {}
+
         for i, num in enumerate(nums):
-            diff = target - num
-            if diff in hash_map:
-                return [hash_map[diff], i]
-            hash_map[num] = i
+            complement = target - num
+
+            if complement in num_dict:
+                return [num_dict[complement], i]
+
+            num_dict[num] = i
+
+        return []
